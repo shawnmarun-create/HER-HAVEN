@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Her Haven · Luxury Raw Hair & Custom Wigs</title>
+<meta name="description" content="Her Haven Zimbabwe — premium raw hair bundles, HD lace frontals, custom-colored wigs. Hand-crafted in Harare, shipped worldwide. Dedicated to her glow.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg">
+<link rel="apple-touch-icon" href="assets/img/logo.jpeg">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+/* ===== SAME PREMIUM VARIABLES ===== */
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-elevated: #1a1a1a;
+  --gold-primary: #D4AF37;
+  --gold-secondary: #F5D98A;
+  --gold-dark: #B8892B;
+  --gold-grad: linear-gradient(135deg, #B8892B 0%, #D4AF37 45%, #F5D98A 70%, #D4AF37 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8E8E8;
+  --text-muted: #888888;
+  --border-light: rgba(212, 175, 55, 0.15);
+  --border-medium: rgba(212, 175, 55, 0.3);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.2);
+  --transition-fast: 0.3s ease;
+  --transition-normal: 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease, width 0.2s, height 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+
+/* Selection */
+::selection {
+  background: var(--gold-primary);
+  color: #000;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-normal);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 12px 5%;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+}
+
+.nav-logo-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-grad);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold-primary);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-icon {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-icon:hover {
+  color: var(--gold-primary);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--gold-primary);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.hero-eyebrow {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--gold-primary);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.hero-title span {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 30px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards 0.9s;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards 1.2s;
+}
+
+.btn {
+  padding: 14px 36px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 40px;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: var(--gold-grad);
+  color: #000;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold-primary);
+  border: 2px solid var(--gold-primary);
+}
+
+.btn-outline:hover {
+  background: var(--gold-primary);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  cursor: pointer;
+}
+
+.scroll-text {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.scroll-wheel {
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.scroll-wheel::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--gold-primary);
+  border-radius: 2px;
+  animation: scrollWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(15px); }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Common */
+.section {
+  padding: 100px 5%;
+}
+
+.section-dark {
+  background: var(--bg-secondary);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-eyebrow {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  display: block;
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-top: 10px;
+}
+
+.section-heading span {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gold-grad);
+  margin: 20px auto 0;
+}
+
+/* Categories Grid */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.category-card {
+  position: relative;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.category-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.category-card:hover .category-img {
+  transform: scale(1.08);
+}
+
+.category-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  padding: 40px 20px 25px;
+  text-align: center;
+}
+
+.category-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-bottom: 5px;
+}
+
+.category-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+}
+
+.category-card::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.category-card:hover::after {
+  opacity: 1;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-normal);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold-primary);
+  box-shadow: var(--shadow-gold);
+}
+
+.product-img-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--gold-grad);
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product-wishlist {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.6);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.product-wishlist:hover {
+  background: var(--gold-primary);
+  color: #000;
+}
+
+.product-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.product-category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-primary);
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.product-rating {
+  margin: 8px 0;
+  font-size: 0.85rem;
+  color: var(--gold-primary);
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-bottom: 15px;
+}
+
+.product-old-price {
+  text-decoration: line-through;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.7rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-fast);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--gold-grad);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  color: #000;
+}
+
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Testimonials */
+.testimonials-slider {
+  position: relative;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  margin: 20px;
+}
+
+.testimonial-quote {
+  font-size: 3rem;
+  color: var(--gold-primary);
+  opacity: 0.5;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold-primary);
+}
+
+.testimonial-name {
+  font-weight: 600;
+  color: var(--gold-primary);
+}
+
+.testimonial-location {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Newsletter */
+.newsletter {
+  text-align: center;
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #0a0805 0%, #1a1508 100%);
+  border-radius: 24px;
+  margin: 0 5% 100px;
+}
+
+.newsletter-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.newsletter-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 14px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 40px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: 70px 5% 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-brand .footer-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid var(--gold-primary);
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  max-width: 250px;
+}
+
+.footer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--gold-primary);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--gold-primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--gold-primary);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  z-index: 99;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-fast);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 5px 30px rgba(37, 211, 102, 0.8); }
+}
+
+/* Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: var(--gold-grad);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-decoration: none;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+}
+
+/* Toast */
+.toast-message {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--gold-grad);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 350px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right var(--transition-normal);
+    z-index: 1001;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 200px;
+    justify-content: center;
+  }
+  
+  .section {
+    padding: 60px 5%;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+  
+  .back-to-top {
+    bottom: 90px;
+    right: 20px;
+  }
+  
+  .toast-message {
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<!-- ===== WOW SPLASH SCREEN - LUXURY EDITION ===== -->
+<div id="splash" style="position:fixed; top:0; left:0; width:100%; height:100%; background:radial-gradient(ellipse at center, #0a0805 0%, #000000 100%); z-index:10000; display:flex; align-items:center; justify-content:center; flex-direction:column; transition:opacity 1.2s cubic-bezier(0.77,0,0.18,1); overflow:hidden;">
+  
+  <!-- Animated Gold Particles Background -->
+  <canvas id="splashCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></canvas>
+  
+  <!-- Rotating Gold Rings -->
+  <div style="position:absolute; width:300px; height:300px; border:1px solid rgba(212,175,55,0.15); border-radius:50%; animation: ringPulse 3s ease-in-out infinite;"></div>
+  <div style="position:absolute; width:400px; height:400px; border:1px solid rgba(212,175,55,0.1); border-radius:50%; animation: ringPulse 3s ease-in-out infinite 0.5s;"></div>
+  <div style="position:absolute; width:500px; height:500px; border:1px solid rgba(212,175,55,0.08); border-radius:50%; animation: ringPulse 3s ease-in-out infinite 1s;"></div>
+  <div style="position:absolute; width:600px; height:600px; border:1px solid rgba(212,175,55,0.05); border-radius:50%; animation: ringPulse 3s ease-in-out infinite 1.5s;"></div>
+  
+  <!-- Glowing Logo Container -->
+  <div style="position:relative; animation: logoFloat 2.5s ease-in-out infinite;">
+    <!-- Outer Glow -->
+    <div style="position:absolute; top:-20px; left:-20px; right:-20px; bottom:-20px; border-radius:50%; background:radial-gradient(circle, rgba(212,175,55,0.3) 0%, transparent 70%); filter:blur(20px);"></div>
+    
+    <!-- Rotating Ring Around Logo -->
+    <div style="position:absolute; top:-15px; left:-15px; right:-15px; bottom:-15px; border-radius:50%; border:2px solid transparent; border-top-color:var(--gold-primary); border-right-color:var(--gold-secondary); animation: spinRing 3s linear infinite;"></div>
+    <div style="position:absolute; top:-25px; left:-25px; right:-25px; bottom:-25px; border-radius:50%; border:1px solid transparent; border-bottom-color:var(--gold-primary); border-left-color:var(--gold-secondary); animation: spinRingReverse 4s linear infinite;"></div>
+    
+    <!-- Logo Image -->
+    <img src="assets/img/logo.jpeg" alt="Her Haven" style="width:180px; height:180px; border-radius:50%; object-fit:cover; border:3px solid var(--gold-primary); box-shadow:0 0 60px rgba(212,175,55,0.6);">
+  </div>
+  
+  <!-- Brand Name with Gold Gradient Animation -->
+  <div style="margin-top:40px; text-align:center;">
+    <div style="font-family:'Great Vibes', cursive; font-size:3.5rem; background:linear-gradient(135deg, #B8892B 0%, #D4AF37 45%, #F5D98A 70%, #D4AF37 100%); background-size:200% 200%; -webkit-background-clip:text; background-clip:text; color:transparent; animation: gradientShift 2s ease infinite; letter-spacing:4px;">Her Haven</div>
+    <div style="font-family:'Inter', sans-serif; font-size:0.75rem; letter-spacing:8px; text-transform:uppercase; color:rgba(212,175,55,0.7); margin-top:12px;">Dedicated to her glow</div>
+  </div>
+  
+  <!-- Animated Loading Bar -->
+  <div style="position:absolute; bottom:80px; width:200px; height:2px; background:rgba(212,175,55,0.2); border-radius:2px; overflow:hidden;">
+    <div style="width:0%; height:100%; background:linear-gradient(90deg, #B8892B, #D4AF37, #F5D98A, #D4AF37); background-size:200% 100%; animation: loadingBar 2.5s ease forwards, shimmer 1.5s ease infinite;"></div>
+  </div>
+  
+  <!-- Loading Percentage Text -->
+  <div style="position:absolute; bottom:50px; font-family:'Inter', sans-serif; font-size:0.7rem; letter-spacing:2px; color:rgba(212,175,55,0.5);" id="loadingPercent">0%</div>
+  
+  <!-- Subtle Entry Hint -->
+  <div style="position:absolute; bottom:20px; font-family:'Inter', sans-serif; font-size:0.6rem; letter-spacing:2px; color:rgba(212,175,55,0.3); animation: fadePulse 1.5s ease-in-out infinite;">ENTERING THE HAVEN</div>
+</div>
+
+<style>
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinRingReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes loadingBar {
+  0% { width: 0%; }
+  10% { width: 10%; }
+  30% { width: 35%; }
+  50% { width: 55%; }
+  70% { width: 75%; }
+  90% { width: 90%; }
+  100% { width: 100%; }
+}
+
+@keyframes fadePulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+</style>
+
+<script>
+// Particle animation for splash screen
+(function() {
+  const splash = document.getElementById('splash');
+  if (!splash) return;
+  
+  // Create canvas particles
+  const canvas = document.getElementById('splashCanvas');
+  if (canvas) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+    
+    let particles = [];
+    const particleCount = 100;
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 3 + 1,
+        alpha: Math.random() * 0.5 + 0.1,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5,
+        color: `rgba(212, 175, 55, ${Math.random() * 0.5 + 0.2})`
+      });
+    }
+    
+    function animateParticles() {
+      if (!canvas || !ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+      });
+      
+      requestAnimationFrame(animateParticles);
+    }
+    
+    animateParticles();
+    
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  }
+  
+  // Animate loading percentage
+  let percent = 0;
+  const percentElement = document.getElementById('loadingPercent');
+  const interval = setInterval(() => {
+    if (percent < 100) {
+      percent += Math.floor(Math.random() * 5) + 1;
+      if (percent > 100) percent = 100;
+      if (percentElement) percentElement.textContent = percent + '%';
+    }
+  }, 80);
+  
+  // Hide splash after delay
+  setTimeout(() => {
+    clearInterval(interval);
+    if (splash) {
+      splash.style.opacity = '0';
+      setTimeout(() => {
+        if (splash) splash.remove();
+      }, 1200);
+    }
+  }, 2800);
+})();
+</script>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/img/logo.jpeg" alt="Her Haven" class="nav-logo-img">
+    <span class="nav-logo-text">Her Haven</span>
+  </a>
+  
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" class="nav-link active">Home</a></li>
+    <li><a href="shop.html" class="nav-link">Shop</a></li>
+    <li><a href="customize.html" class="nav-link">Custom Wig</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+  </ul>
+  
+  <div class="nav-icons">
+    <i class="fas fa-search nav-icon"></i>
+    <a href="cart.html" class="nav-icon" style="color: inherit;">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero Section with YOUR image -->
+<section class="hero">
+  <img src="assets/img/hero-bg-wig.jpeg" alt="Her Haven Luxury Wig" class="hero-bg">
+  <div class="hero-overlay"></div>
+  
+  <div class="hero-content">
+    <div class="hero-eyebrow">Welcome to Her Haven</div>
+    <h1 class="hero-title">Crowns Crafted <span>For Her Glow</span></h1>
+    <p class="hero-subtitle">Premium raw hair, custom-colored wigs and one-of-one styling — handpicked, hand-colored, and shipped with love from Bulawayo, Zimbabwe.</p>
+    <div class="hero-buttons">
+      <a href="shop.html" class="btn btn-primary">
+        <i class="fas fa-shopping-bag"></i> Shop Collection
+      </a>
+      <a href="customize.html" class="btn btn-outline">
+        <i class="fas fa-magic"></i> Custom Order
+      </a>
+    </div>
+  </div>
+  
+  <div class="hero-scroll" id="heroScroll">
+    <div class="scroll-text">Scroll</div>
+    <div class="scroll-wheel"></div>
+  </div>
+</section>
+
+<!-- Categories Section with YOUR images -->
+<section class="section" id="categories">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Explore</span>
+    <h2 class="section-heading">Shop by <span>Category</span></h2>
+    <div class="section-divider"></div>
+    <p style="color: var(--text-muted); margin-top: 20px;">From silky bone-straight bundles to hand-painted honey blondes, find the texture that tells your story.</p>
+  </div>
+  
+  <div class="categories-grid" id="categoriesGrid"></div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="section section-dark">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Most Loved</span>
+    <h2 class="section-heading">Featured <span>Pieces</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  
+  <div class="products-grid" id="featuredProducts"></div>
+  
+  <div style="text-align: center; margin-top: 50px;">
+    <a href="shop.html" class="btn btn-outline">View All Products <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+
+<!-- Features Section -->
+<section class="section section-dark">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Why Her Haven</span>
+    <h2 class="section-heading">The <span>Haven Difference</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  
+  <div class="features-grid">
+    <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="feature-icon"><i class="fas fa-crown"></i></div>
+      <h3 class="feature-title">100% Raw Hair</h3>
+      <p class="feature-desc">Single-donor, ethically sourced raw hair that lasts years with proper care.</p>
+    </div>
+    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="feature-icon"><i class="fas fa-palette"></i></div>
+      <h3 class="feature-title">Custom Coloring</h3>
+      <p class="feature-desc">In-house hand-painted color, toning and bleaching by trained stylists.</p>
+    </div>
+    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="feature-icon"><i class="fas fa-hand-peace"></i></div>
+      <h3 class="feature-title">Glueless Installs</h3>
+      <p class="feature-desc">Pre-plucked, pre-styled wigs ready to wear in minutes — no salon needed.</p>
+    </div>
+    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="feature-icon"><i class="fas fa-globe-africa"></i></div>
+      <h3 class="feature-title">Worldwide Shipping</h3>
+      <p class="feature-desc">Discreet, tracked delivery wherever you call home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<div class="newsletter" data-aos="fade-up">
+  <h2 class="newsletter-title">Join The Haven</h2>
+  <p class="newsletter-subtitle">Be the first to know about new drops, custom slots, and exclusive offers.</p>
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+    <button type="submit" class="btn btn-primary">Subscribe <i class="fas fa-paper-plane"></i></button>
+  </form>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.jpeg" alt="Her Haven" class="footer-logo">
+      <h3 style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Her Haven</h3>
+      <p>Premium raw hair, custom-colored wigs and styling — dedicated to her glow.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/herhaven_zw" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@_her_haven" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/263771009965" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Shop</h4>
+      <ul class="footer-links">
+        <li><a href="shop.html?cat=body-wave">Body Wave</a></li>
+        <li><a href="shop.html?cat=straight">Straight</a></li>
+        <li><a href="shop.html?cat=curly">Curly</a></li>
+        <li><a href="shop.html?cat=bobs">Bob Wigs</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Studio</h4>
+      <ul class="footer-links">
+        <li><a href="customize.html">Custom Wig</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart & Checkout</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Contact</h4>
+      <ul class="footer-links">
+        <li><i class="fab fa-whatsapp"></i> +263 77 100 9965</li>
+        <li><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</li>
+        <li><i class="far fa-clock"></i> Mon–Sat · 9:00–18:00</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2024 Her Haven. Dedicated to her glow. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/263771009965" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// ===== PRODUCT DATABASE WITH YOUR IMAGES =====
+const PRODUCTS = [
+  { id: 1, name: "Brazilian Body Wave Bundle", category: "body-wave", price: 120, originalPrice: 150, badge: "Best Seller", rating: 4.8, reviews: 234, image: "assets/img/product-body-wave-bundle.jpeg" },
+  { id: 2, name: "HD Lace Frontal Wig", category: "frontals", price: 280, originalPrice: 350, badge: "New", rating: 4.9, reviews: 189, image: "assets/img/product-hd-lace-wig.jpeg" },
+  { id: 3, name: "Silky Straight Bundle", category: "straight", price: 110, originalPrice: null, badge: null, rating: 4.7, reviews: 156, image: "assets/img/product-silky-straight.jpeg" },
+  { id: 4, name: "Deep Wave Bundle Deal", category: "deep-wave", price: 135, originalPrice: 180, badge: "Sale", rating: 4.8, reviews: 312, image: "assets/img/product-deep-wave-deal.jpeg" },
+  { id: 5, name: "Kinky Curly Bundle", category: "curly", price: 140, originalPrice: null, badge: null, rating: 4.6, reviews: 98, image: "assets/img/product-kinky-curly.jpeg" },
+  { id: 6, name: "Signature Bob Wig", category: "bobs", price: 180, originalPrice: 220, badge: "Hot", rating: 4.9, reviews: 267, image: "assets/img/product-bob-wig.jpeg" },
+  { id: 7, name: "Honey Blonde Body Wave", category: "colored", price: 320, originalPrice: 400, badge: "Signature", rating: 5.0, reviews: 445, image: "assets/img/product-honey-blonde.jpeg" },
+  { id: 8, name: "5x5 HD Closure Wig", category: "closures", price: 240, originalPrice: null, badge: null, rating: 4.7, reviews: 123, image: "assets/img/product-closure-wig.jpeg" }
+];
+
+// Categories with YOUR images
+const CATEGORIES = [
+  { slug: "body-wave", name: "Body Wave", count: "24 styles", image: "assets/img/category-body-wave.jpeg" },
+  { slug: "straight", name: "Straight", count: "18 styles", image: "assets/img/category-straight.jpeg" },
+  { slug: "deep-wave", name: "Deep Wave", count: "15 styles", image: "assets/img/category-deep-wave.jpeg" },
+  { slug: "curly", name: "Curly", count: "12 styles", image: "assets/img/category-curly.jpeg" },
+  { slug: "bobs", name: "Bob Wigs", count: "10 styles", image: "assets/img/category-bob.jpeg" },
+  { slug: "colored", name: "Colored", count: "8 styles", image: "assets/img/category-colored.jpeg" },
+  { slug: "frontals", name: "Frontals", count: "20 styles", image: "assets/img/category-frontals.jpeg" },
+  { slug: "closures", name: "Closures", count: "14 styles", image: "assets/img/category-closures.jpeg" }
+];
+
+// Cart
+let cart = JSON.parse(localStorage.getItem('herhaven_cart') || '[]');
+
+function updateCartCount() {
+  const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = total);
+}
+
+function addToCart(productId) {
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+  
+  const existing = cart.find(item => item.id === productId);
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+  
+  localStorage.setItem('herhaven_cart', JSON.stringify(cart));
+  updateCartCount();
+  showToast(`${product.name} added to cart!`);
+}
+
+function showToast(message) {
+  let toast = document.querySelector('.toast-message');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast-message';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    toast.style.transform = 'translateX(-50%) translateY(100px)';
+  }, 2500);
+}
+
+// Render Categories
+function renderCategories() {
+  const container = document.getElementById('categoriesGrid');
+  if (!container) return;
+  
+  container.innerHTML = CATEGORIES.map(cat => `
+    <div class="category-card" data-aos="fade-up" onclick="location.href='shop.html?cat=${cat.slug}'">
+      <img src="${cat.image}" alt="${cat.name}" class="category-img">
+      <div class="category-overlay">
+        <h3 class="category-name">${cat.name}</h3>
+        <p class="category-count">${cat.count}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Render Featured Products
+function renderFeaturedProducts() {
+  const container = document.getElementById('featuredProducts');
+  if (!container) return;
+  
+  const featured = PRODUCTS.slice(0, 8);
+  container.innerHTML = featured.map(product => `
+    <div class="product-card">
+      <div class="product-img-container">
+        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+        <div class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(${product.id})">
+          <i class="far fa-heart"></i>
+        </div>
+        <img src="${product.image}" alt="${product.name}" class="product-img">
+      </div>
+      <div class="product-info">
+        <div class="product-category">${product.category.replace('-', ' ')}</div>
+        <h3 class="product-name">${product.name}</h3>
+        <div class="product-rating">
+          ${'★'.repeat(Math.floor(product.rating))}${product.rating % 1 ? '½' : ''}
+          <span style="color: var(--text-muted); font-size: 0.7rem;">(${product.reviews})</span>
+        </div>
+        <div class="product-price">
+          $${product.price}
+          ${product.originalPrice ? `<span class="product-old-price">$${product.originalPrice}</span>` : ''}
+        </div>
+        <div class="product-actions">
+          <button class="btn btn-primary btn-sm" onclick="addToCart(${product.id})">
+            <i class="fas fa-shopping-bag"></i> Add
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="quickView(${product.id})">
+            <i class="fas fa-eye"></i> View
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleWishlist(id) {
+  showToast("Added to wishlist!");
+}
+
+function quickView(id) {
+  showToast("Quick view coming soon!");
+}
+
+// Animated Counter
+function animateCounter(element, target, duration = 2000) {
+  let start = 0;
+  const increment = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(start);
+    }
+  }, 16);
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  // Splash screen removal
+  const splash = document.getElementById('splash');
+  if (splash) {
+    setTimeout(() => {
+      splash.style.opacity = '0';
+      setTimeout(() => splash.remove(), 1000);
+    }, 2500);
+  }
+  
+  AOS.init({ duration: 800, once: true });
+  
+  renderCategories();
+  renderFeaturedProducts();
+  updateCartCount();
+  
+  // Animate stats
+  setTimeout(() => {
+    const stat1 = document.getElementById('stat1');
+    const stat2 = document.getElementById('stat2');
+    const stat3 = document.getElementById('stat3');
+    const stat4 = document.getElementById('stat4');
+    if (stat1) animateCounter(stat1, 500);
+    if (stat2) animateCounter(stat2, 15);
+    if (stat3) animateCounter(stat3, 100);
+    if (stat4) animateCounter(stat4, 8);
+  }, 500);
+  
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+      backToTop.classList.add('show');
+    } else {
+      navbar.classList.remove('scrolled');
+      backToTop.classList.remove('show');
+    }
+  });
+  
+  // Hero scroll button
+  const heroScroll = document.getElementById('heroScroll');
+  if (heroScroll) {
+    heroScroll.addEventListener('click', () => {
+      const categories = document.getElementById('categories');
+      if (categories) categories.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+  
+  // Mobile menu
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navMenu = document.getElementById('navMenu');
+  
+  if (mobileBtn && navMenu) {
+    mobileBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+  }
+  
+  // Newsletter form
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast(`Thanks for subscribing!`);
+      newsletterForm.reset();
+    });
+  }
+  
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+const cursorFollower = document.querySelector('.cursor-follower');
+
+if (cursor && cursorFollower) {
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+  
+  document.querySelectorAll('a, button, .category-card, .product-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('active');
+      cursorFollower.classList.add('active');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('active');
+      cursorFollower.classList.remove('active');
+    });
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>About Her Haven · Our Story — Premium Hair & Wigs Zimbabwe</title>
+<meta name="description" content="Discover the story behind Her Haven — Zimbabwe's premier luxury hair brand. Ethically sourced raw hair, hand-crafted wigs, and a dedication to her glow since 2020.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg">
+<link rel="apple-touch-icon" href="assets/img/logo.jpeg">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<style>
+/* ===== PREMIUM VARIABLES ===== */
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-elevated: #1a1a1a;
+  --gold-primary: #D4AF37;
+  --gold-secondary: #F5D98A;
+  --gold-dark: #B8892B;
+  --gold-grad: linear-gradient(135deg, #B8892B 0%, #D4AF37 45%, #F5D98A 70%, #D4AF37 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8E8E8;
+  --text-muted: #888888;
+  --border-light: rgba(212, 175, 55, 0.15);
+  --border-medium: rgba(212, 175, 55, 0.3);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.2);
+  --transition-fast: 0.3s ease;
+  --transition-normal: 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease, width 0.2s, height 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+
+/* Selection */
+::selection {
+  background: var(--gold-primary);
+  color: #000;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-normal);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 12px 5%;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+}
+
+.nav-logo-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-grad);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold-primary);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-icon {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-icon:hover {
+  color: var(--gold-primary);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--gold-primary);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Page Hero */
+.page-hero {
+  padding: 180px 5% 100px;
+  text-align: center;
+  background: linear-gradient(135deg, #0a0805 0%, #000000 100%);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(212,175,55,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-hero .breadcrumb {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-top: 15px;
+}
+
+.page-hero .breadcrumb span {
+  color: var(--gold-primary);
+}
+
+/* Section Common */
+.section {
+  padding: 100px 5%;
+}
+
+.section-dark {
+  background: var(--bg-secondary);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-eyebrow {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  display: block;
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.section-heading span {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gold-grad);
+  margin: 20px auto 0;
+}
+
+/* Story Section */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.story-image::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 28px;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.story-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--gold-primary);
+  margin-bottom: 20px;
+}
+
+.story-content p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.story-signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--gold-primary);
+  margin-top: 30px;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px 20px;
+  transition: all var(--transition-fast);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+/* Values Section */
+.values-section {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold-primary);
+  box-shadow: var(--shadow-gold);
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gold-grad);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 2rem;
+  color: #000;
+}
+
+.value-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--gold-primary);
+  margin-bottom: 15px;
+}
+
+.value-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Timeline */
+.timeline-section {
+  padding: 100px 5%;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--gold-grad);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.timeline-content {
+  width: 45%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 25px;
+  transition: all var(--transition-fast);
+}
+
+.timeline-content:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-3px);
+}
+
+.timeline-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.timeline-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--gold-grad);
+  border-radius: 50%;
+  border: 3px solid var(--bg-primary);
+}
+
+/* Team Section */
+.team-section {
+  background: var(--bg-secondary);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--gold-primary);
+}
+
+.team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-fast);
+}
+
+.team-card:hover .team-img {
+  transform: scale(1.05);
+}
+
+.team-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--gold-primary);
+  margin-bottom: 5px;
+}
+
+.team-role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+/* Testimonials */
+.testimonials-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  margin: 20px;
+}
+
+.testimonial-quote {
+  font-size: 3rem;
+  color: var(--gold-primary);
+  opacity: 0.5;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold-primary);
+}
+
+.testimonial-name {
+  font-weight: 600;
+  color: var(--gold-primary);
+}
+
+.testimonial-location {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #0a0805 0%, #1a1508 100%);
+  text-align: center;
+  padding: 80px 5%;
+  margin: 0 5% 80px;
+  border-radius: 30px;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 14px 36px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 40px;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: var(--gold-grad);
+  color: #000;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold-primary);
+  border: 2px solid var(--gold-primary);
+}
+
+.btn-outline:hover {
+  background: var(--gold-primary);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: 70px 5% 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-brand .footer-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid var(--gold-primary);
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  max-width: 250px;
+}
+
+.footer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--gold-primary);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--gold-primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--gold-primary);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  z-index: 99;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-fast);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 5px 30px rgba(37, 211, 102, 0.8); }
+}
+
+/* Toast */
+.toast-message {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--gold-grad);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 350px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right var(--transition-normal);
+    z-index: 1001;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid,
+  .values-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item,
+  .timeline-item:nth-child(odd) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+  }
+  
+  .timeline-content {
+    width: 100%;
+  }
+  
+  .timeline-dot {
+    left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid,
+  .values-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 60px 5%;
+  }
+  
+  .cta-section {
+    margin: 0 5% 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+  
+  .toast-message {
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
+  }
+  
+  .timeline-content {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/img/logo.jpeg" alt="Her Haven" class="nav-logo-img">
+    <span class="nav-logo-text">Her Haven</span>
+  </a>
+  
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="shop.html" class="nav-link">Shop</a></li>
+    <li><a href="customize.html" class="nav-link">Custom Wig</a></li>
+    <li><a href="about.html" class="nav-link active">About</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+  </ul>
+  
+  <div class="nav-icons">
+    <i class="fas fa-search nav-icon"></i>
+    <a href="cart.html" class="nav-icon" style="color: inherit;">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Hero with Background Image -->
+<section class="page-hero" style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%), url('assets/img/hero-about.jpeg'); background-size: cover; background-position: center 40%;">
+  <h1>Our Story</h1>
+  <div class="breadcrumb">Home · <span>About</span></div>
+</section>
+
+<!-- Story Section with YOUR founder image -->
+<section class="section">
+  <div class="story-grid">
+    <div class="story-image" data-aos="fade-right">
+      <img src="assets/img/about-founder.jpeg" alt="Her Haven Founder" class="story-img">
+    </div>
+    <div class="story-content" data-aos="fade-left">
+      <span class="section-eyebrow" style="text-align: left;">Dedicated to her glow</span>
+      <h2>A haven built for the woman who wants more than just hair.</h2>
+      <p>Her Haven started as a quiet obsession with detail — the kind of detail you only notice when a wig fits like it was made for you, because it was. Founded in Harare, Zimbabwe, we set out to change the hair industry by offering something truly different: ethically sourced raw hair, hand-crafted wigs, and a personal touch that mass production can never replicate.</p>
+      <p>Today we serve queens across Zimbabwe, South Africa, the UK, USA, and beyond. Every bundle is single-donor raw hair. Every wig is hand-bleached, toned and customized by our in-studio team. And every order is finished with the same care we'd give our own crowns.</p>
+      <p>We don't just sell hair. We deliver confidence, one custom piece at a time.</p>
+      <div class="story-signature">— The Her Haven Team</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Values Section -->
+<section class="values-section section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">What we stand for</span>
+    <h2 class="section-heading">Our <span>Values</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="values-grid">
+    <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="value-icon"><i class="fas fa-crown"></i></div>
+      <h3 class="value-title">Quality First</h3>
+      <p class="value-desc">Only raw, single-donor hair makes it through our rigorous standards. No blends, no synthetic — just 100% human hair.</p>
+    </div>
+    <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="value-icon"><i class="fas fa-heart"></i></div>
+      <h3 class="value-title">Crafted with Love</h3>
+      <p class="value-desc">Each wig is customized by a real stylist, not a machine. Every piece gets individual attention and care.</p>
+    </div>
+    <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="value-icon"><i class="fas fa-gem"></i></div>
+      <h3 class="value-title">Transparent</h3>
+      <p class="value-desc">Honest pricing, honest sourcing, honest results. What you see is exactly what you get.</p>
+    </div>
+    <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="value-icon"><i class="fas fa-infinity"></i></div>
+      <h3 class="value-title">Built to Last</h3>
+      <p class="value-desc">Care for your Her Haven hair and it'll repay you for years. Quality that stands the test of time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Journey Timeline -->
+<section class="timeline-section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Our journey</span>
+    <h2 class="section-heading">The <span>Her Haven</span> Story</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item" data-aos="fade-up">
+      <div class="timeline-content">
+        <div class="timeline-year">2020</div>
+        <div class="timeline-title">The Beginning</div>
+        <div class="timeline-desc">Her Haven was founded in Harare, Zimbabwe with a simple mission: provide women with premium raw hair that doesn't compromise on quality.</div>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="timeline-content">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-title">Custom Wig Studio Launches</div>
+        <div class="timeline-desc">Expanded our services to include fully custom wigs, hand-crafted and colored by our in-house stylists.</div>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="timeline-content">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-title">International Expansion</div>
+        <div class="timeline-desc">Began shipping worldwide, reaching customers in South Africa, UK, USA, and across Europe.</div>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="timeline-content">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-title">The Haven Community</div>
+        <div class="timeline-desc">500+ happy customers, 8 product categories, and a growing community of queens who trust Her Haven.</div>
+      </div>
+      <div class="timeline-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section with YOUR team images -->
+<section class="team-section section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Meet the team</span>
+    <h2 class="section-heading">The <span>Artisans</span> Behind the Crowns</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="team-grid">
+    <div class="team-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="team-image">
+        <img src="assets/img/team-founder.jpeg" alt="Founder Tendai" class="team-img">
+      </div>
+      <h3 class="team-name">Tendai M.</h3>
+      <div class="team-role">Founder & Creative Director</div>
+    </div>
+    <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="team-image">
+        <img src="assets/img/team-stylist.jpeg" alt="Lead Stylist Chipo" class="team-img">
+      </div>
+      <h3 class="team-name">Chipo K.</h3>
+      <div class="team-role">Lead Wig Stylist</div>
+    </div>
+    <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="team-image">
+        <img src="assets/img/team-colorist.jpeg" alt="Color Specialist Rudo" class="team-img">
+      </div>
+      <h3 class="team-name">Rudo G.</h3>
+      <div class="team-role">Color Specialist</div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Words from our queens</span>
+    <h2 class="section-heading">Loved by <span>Her Haven</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="testimonials-slider">
+    <div class="swiper testimonialsSwiper">
+      <div class="swiper-wrapper" id="testimonialsContainer"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<div class="cta-section" data-aos="fade-up">
+  <h2 class="cta-title">Ready to find your crown?</h2>
+  <p style="color: var(--text-muted);">Browse our collection or design your own custom wig — we're here to bring your vision to life.</p>
+  <div class="cta-buttons">
+    <a href="shop.html" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+    <a href="customize.html" class="btn btn-outline"><i class="fas fa-magic"></i> Custom Wig</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.jpeg" alt="Her Haven" class="footer-logo">
+      <h3 style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Her Haven</h3>
+      <p>Premium raw hair, custom-colored wigs and styling — dedicated to her glow.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/herhaven_zw" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@_her_haven" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/263771009965" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Shop</h4>
+      <ul class="footer-links">
+        <li><a href="shop.html?cat=body-wave">Body Wave</a></li>
+        <li><a href="shop.html?cat=straight">Straight</a></li>
+        <li><a href="shop.html?cat=curly">Curly</a></li>
+        <li><a href="shop.html?cat=bobs">Bob Wigs</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Studio</h4>
+      <ul class="footer-links">
+        <li><a href="customize.html">Custom Wig</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart & Checkout</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Contact</h4>
+      <ul class="footer-links">
+        <li><i class="fab fa-whatsapp"></i> +263 77 100 9965</li>
+        <li><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</li>
+        <li><i class="far fa-clock"></i> Mon–Sat · 9:00–18:00</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2024 Her Haven. Dedicated to her glow. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/263771009965" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+// Cart functions
+let cart = JSON.parse(localStorage.getItem('herhaven_cart') || '[]');
+
+function updateCartCount() {
+  const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = total);
+}
+
+function showToast(message) {
+  let toast = document.querySelector('.toast-message');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast-message';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    toast.style.transform = 'translateX(-50%) translateY(100px)';
+  }, 2500);
+}
+
+// Animated Counter
+function animateCounter(element, target, duration = 2000) {
+  let start = 0;
+  const increment = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(start);
+    }
+  }, 16);
+}
+
+// Testimonials data
+const TESTIMONIALS = [
+  { name: "Tariro M.", location: "Harare, Zimbabwe", text: "Her Haven completely changed my hair game. The custom honey blonde wig is everything I dreamed of and more. The quality is unmatched!", avatar: "https://randomuser.me/api/portraits/women/1.jpg" },
+  { name: "Rumbi L.", location: "Johannesburg, SA", text: "Soft, full, no shedding — and the install service is unmatched. I'm a customer for life. The HD lace is invisible!", avatar: "https://randomuser.me/api/portraits/women/2.jpg" },
+  { name: "Kuda N.", location: "London, UK", text: "The attention to detail is luxury level. My HD frontal looks like my scalp. Obsessed doesn't even cover it!", avatar: "https://randomuser.me/api/portraits/women/3.jpg" },
+  { name: "Chipo M.", location: "Dubai, UAE", text: "I've tried many brands but Her Haven is different. The raw hair lasts and lasts. Worth every penny!", avatar: "https://randomuser.me/api/portraits/women/4.jpg" }
+];
+
+// Render Testimonials
+function renderTestimonials() {
+  const container = document.getElementById('testimonialsContainer');
+  if (!container) return;
+  
+  container.innerHTML = TESTIMONIALS.map(testimonial => `
+    <div class="swiper-slide">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">“</div>
+        <p class="testimonial-text">${testimonial.text}</p>
+        <div class="testimonial-author">
+          <img src="${testimonial.avatar}" alt="${testimonial.name}" class="testimonial-avatar">
+          <div>
+            <div class="testimonial-name">${testimonial.name}</div>
+            <div class="testimonial-location">${testimonial.location}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ duration: 800, once: true });
+  updateCartCount();
+  renderTestimonials();
+  
+  // Initialize Swiper
+  new Swiper('.testimonialsSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    },
+    autoplay: { delay: 5000, disableOnInteraction: false }
+  });
+  
+  // Animate stats
+  setTimeout(() => {
+    const stat1 = document.getElementById('stat1');
+    const stat2 = document.getElementById('stat2');
+    const stat3 = document.getElementById('stat3');
+    const stat4 = document.getElementById('stat4');
+    if (stat1) animateCounter(stat1, 500);
+    if (stat2) animateCounter(stat2, 15);
+    if (stat3) animateCounter(stat3, 100);
+    if (stat4) animateCounter(stat4, 8);
+  }, 500);
+  
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+  
+  // Mobile menu
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navMenu = document.getElementById('navMenu');
+  if (mobileBtn && navMenu) {
+    mobileBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+  }
+});
+
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+const cursorFollower = document.querySelector('.cursor-follower');
+if (cursor && cursorFollower) {
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+  document.querySelectorAll('a, button, .stat-card, .value-card, .team-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('active');
+      cursorFollower.classList.add('active');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('active');
+      cursorFollower.classList.remove('active');
+    });
+  });
+}
+</script>
+</body>
+</html>

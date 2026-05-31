@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Contact Her Haven · WhatsApp, Instagram, TikTok — Get in Touch</title>
+<meta name="description" content="Get in touch with Her Haven. Message us on WhatsApp, Instagram, or TikTok. Visit our Harare studio or send us an enquiry — we're here to help.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg">
+<link rel="apple-touch-icon" href="assets/img/logo.jpeg">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+/* ===== PREMIUM VARIABLES ===== */
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-elevated: #1a1a1a;
+  --gold-primary: #D4AF37;
+  --gold-secondary: #F5D98A;
+  --gold-dark: #B8892B;
+  --gold-grad: linear-gradient(135deg, #B8892B 0%, #D4AF37 45%, #F5D98A 70%, #D4AF37 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8E8E8;
+  --text-muted: #888888;
+  --border-light: rgba(212, 175, 55, 0.15);
+  --border-medium: rgba(212, 175, 55, 0.3);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.2);
+  --transition-fast: 0.3s ease;
+  --transition-normal: 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease, width 0.2s, height 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+
+/* Selection */
+::selection {
+  background: var(--gold-primary);
+  color: #000;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-normal);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 12px 5%;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+}
+
+.nav-logo-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-grad);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold-primary);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-icon {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-icon:hover {
+  color: var(--gold-primary);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--gold-primary);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Page Hero */
+.page-hero {
+  padding: 180px 5% 100px;
+  text-align: center;
+  background: linear-gradient(135deg, #0a0805 0%, #000000 100%);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-hero .breadcrumb {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-top: 15px;
+}
+
+.page-hero .breadcrumb span {
+  color: var(--gold-primary);
+}
+
+/* Section Common */
+.section {
+  padding: 100px 5%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-eyebrow {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  display: block;
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.section-heading span {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gold-grad);
+  margin: 20px auto 0;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contact Info Cards */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+}
+
+.info-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--gold-grad);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.8rem;
+  color: #000;
+}
+
+.info-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.info-detail {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.info-detail a {
+  color: var(--gold-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.info-detail a:hover {
+  color: var(--gold-secondary);
+}
+
+/* Social Links */
+.social-links {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+}
+
+.social-links h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--gold-primary);
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: var(--gold-grad);
+  color: #000;
+  transform: translateY(-5px);
+  border-color: transparent;
+}
+
+/* Contact Form */
+.contact-form-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+.contact-form-container h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.contact-form-container p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  background: var(--gold-grad);
+  color: #000;
+  border: none;
+  border-radius: 40px;
+  padding: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Map Section */
+.map-section {
+  padding: 0 5% 100px;
+}
+
+.map-container {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  height: 400px;
+  position: relative;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%) brightness(0.7);
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  padding: 30px;
+  text-align: center;
+}
+
+.map-overlay i {
+  font-size: 2rem;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.map-overlay p {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  background: var(--bg-secondary);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 25px;
+  transition: all var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: var(--gold-primary);
+}
+
+.faq-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold-primary);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question i {
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.open .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-fast);
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  margin-top: 15px;
+}
+
+/* Business Hours */
+.hours-section {
+  padding: 60px 5%;
+  text-align: center;
+}
+
+.hours-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hours-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 30px;
+  min-width: 200px;
+}
+
+.hours-day {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.hours-time {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: 70px 5% 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-brand .footer-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid var(--gold-primary);
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  max-width: 250px;
+}
+
+.footer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--gold-primary);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--gold-primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--gold-primary);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  z-index: 99;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-fast);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 5px 30px rgba(37, 211, 102, 0.8); }
+}
+
+/* Toast */
+.toast-message {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--gold-grad);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 350px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right var(--transition-normal);
+    z-index: 1001;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 60px 5%;
+  }
+  
+  .contact-form-container {
+    padding: 30px;
+  }
+  
+  .hours-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+  
+  .toast-message {
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
+  }
+  
+  .social-link {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/img/logo.jpeg" alt="Her Haven" class="nav-logo-img">
+    <span class="nav-logo-text">Her Haven</span>
+  </a>
+  
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="shop.html" class="nav-link">Shop</a></li>
+    <li><a href="customize.html" class="nav-link">Custom Wig</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+  </ul>
+  
+  <div class="nav-icons">
+    <i class="fas fa-search nav-icon"></i>
+    <a href="cart.html" class="nav-icon" style="color: inherit;">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Hero with Background Image -->
+<section class="page-hero" style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%), url('assets/img/hero-contact.jpeg'); background-size: cover; background-position: center;">
+  <h1>Let's Talk</h1>
+  <div class="breadcrumb">Home · <span>Contact</span></div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">We're listening</span>
+    <h2 class="section-heading">Get in <span>Touch</span></h2>
+    <div class="section-divider"></div>
+    <p style="color: var(--text-muted); margin-top: 20px;">Have a question? Need help with an order? Want to create a custom wig?<br>We're just a message away.</p>
+  </div>
+  
+  <div class="contact-grid">
+    <!-- Left Column - Contact Info -->
+    <div data-aos="fade-right">
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+          <h3 class="info-title">WhatsApp</h3>
+          <p class="info-detail"><a href="https://wa.me/263771009965" target="_blank">+263 77 100 9965</a></p>
+          <p class="info-detail" style="font-size: 0.75rem; margin-top: 8px;">Fastest response time</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon"><i class="fab fa-instagram"></i></div>
+          <h3 class="info-title">Instagram</h3>
+          <p class="info-detail"><a href="https://www.instagram.com/herhaven_zw" target="_blank">@herhaven_zw</a></p>
+          <p class="info-detail" style="font-size: 0.75rem; margin-top: 8px;">Follow for updates & drops</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon"><i class="fab fa-tiktok"></i></div>
+          <h3 class="info-title">TikTok</h3>
+          <p class="info-detail"><a href="https://www.tiktok.com/@_her_haven" target="_blank">@_her_haven</a></p>
+          <p class="info-detail" style="font-size: 0.75rem; margin-top: 8px;">Watch our styling videos</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3 class="info-title">Studio</h3>
+          <p class="info-detail">Harare, Zimbabwe</p>
+          <p class="info-detail" style="font-size: 0.75rem; margin-top: 8px;">By appointment only</p>
+        </div>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="social-links">
+        <h3>Connect With Us</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/herhaven_zw" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@_her_haven" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/263771009965" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Column - Contact Form -->
+    <div data-aos="fade-left">
+      <div class="contact-form-container">
+        <h2>Send us a message</h2>
+        <p>Your message goes straight to our WhatsApp — we'll reply within minutes.</p>
+        
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" class="form-input" id="contactName" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-input" id="contactPhone" placeholder="WhatsApp Number" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <input type="email" class="form-input" id="contactEmail" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+              <select class="form-select" id="contactSubject">
+                <option value="General Enquiry">General Enquiry</option>
+                <option value="Order Question">Order Question</option>
+                <option value="Custom Wig">Custom Wig Request</option>
+                <option value="Wholesale">Wholesale Enquiry</option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <textarea class="form-textarea" id="contactMessage" placeholder="Your Message" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+          </button>
+          <p style="text-align: center; margin-top: 15px; font-size: 0.7rem; color: var(--text-muted);">
+            We'll respond within minutes during business hours
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Business Hours -->
+<section class="hours-section" data-aos="fade-up">
+  <div class="section-title">
+    <span class="section-eyebrow">We're here</span>
+    <h2 class="section-heading">Business <span>Hours</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="hours-grid">
+    <div class="hours-card">
+      <div class="hours-day">Monday - Friday</div>
+      <div class="hours-time">9:00 AM - 6:00 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Saturday</div>
+      <div class="hours-time">9:00 AM - 3:00 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Sunday</div>
+      <div class="hours-time">Closed</div>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section with YOUR studio image -->
+<section class="map-section" data-aos="fade-up">
+  <div class="map-container">
+    <img src="assets/img/studio-atmosphere.jpeg" alt="Her Haven Studio Location" class="map-image">
+    <div class="map-overlay">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>Her Haven Studio · Harare, Zimbabwe</p>
+      <p style="font-size: 0.75rem; opacity: 0.7;">📍 Contact us for exact location | By appointment only</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Got questions?</span>
+    <h2 class="section-heading">Frequently <span>Asked</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  
+  <div class="faq-grid">
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+      <div class="faq-question">
+        How do I place an order?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">You can order directly through our website by adding items to your cart and checking out via WhatsApp. For custom wigs, use our Custom Wig Studio form.</div>
+    </div>
+    
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="faq-question">
+        What payment methods do you accept?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">We accept EcoCash, InnBucks, bank transfer (Zimbabwe), and international payments via PayPal and Wise. Payment details are provided on WhatsApp after order confirmation.</div>
+    </div>
+    
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="faq-question">
+        How long does shipping take?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">Local delivery (Harare): 1-2 days. Zimbabwe inter-city: 2-4 days. International: 7-14 days depending on location. Tracking provided for all orders.</div>
+    </div>
+    
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="faq-question">
+        Can I return or exchange a wig?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">Due to hygiene reasons, wigs cannot be returned once worn. However, if there's a manufacturing defect, contact us within 48 hours of delivery for resolution.</div>
+    </div>
+    
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+      <div class="faq-question">
+        How do I care for my Her Haven wig?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">We provide care instructions with every order. Use sulfate-free shampoo, cold water, and air dry. Store on a mannequin head to maintain shape.</div>
+    </div>
+    
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+      <div class="faq-question">
+        Do you offer installation services?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">Yes, we offer professional wig installation and styling services at our Harare studio. Bookings are required in advance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.jpeg" alt="Her Haven" class="footer-logo">
+      <h3 style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Her Haven</h3>
+      <p>Premium raw hair, custom-colored wigs and styling — dedicated to her glow.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/herhaven_zw" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@_her_haven" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/263771009965" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Shop</h4>
+      <ul class="footer-links">
+        <li><a href="shop.html?cat=body-wave">Body Wave</a></li>
+        <li><a href="shop.html?cat=straight">Straight</a></li>
+        <li><a href="shop.html?cat=curly">Curly</a></li>
+        <li><a href="shop.html?cat=bobs">Bob Wigs</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Studio</h4>
+      <ul class="footer-links">
+        <li><a href="customize.html">Custom Wig</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart & Checkout</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Contact</h4>
+      <ul class="footer-links">
+        <li><i class="fab fa-whatsapp"></i> +263 77 100 9965</li>
+        <li><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</li>
+        <li><i class="far fa-clock"></i> Mon–Sat · 9:00–18:00</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2024 Her Haven. Dedicated to her glow. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/263771009965" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Cart functions
+let cart = JSON.parse(localStorage.getItem('herhaven_cart') || '[]');
+
+function updateCartCount() {
+  const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = total);
+}
+
+function showToast(message) {
+  let toast = document.querySelector('.toast-message');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast-message';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    toast.style.transform = 'translateX(-50%) translateY(100px)';
+  }, 2500);
+}
+
+// FAQ Accordion
+function initFaq() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ duration: 800, once: true });
+  updateCartCount();
+  initFaq();
+  
+  // Contact form submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('contactName').value;
+      const phone = document.getElementById('contactPhone').value;
+      const email = document.getElementById('contactEmail').value;
+      const subject = document.getElementById('contactSubject').value;
+      const message = document.getElementById('contactMessage').value;
+      
+      if (!name || !phone || !message) {
+        showToast('Please fill in your name, phone number, and message');
+        return;
+      }
+      
+      const whatsappMsg = `*🔴 NEW CONTACT FORM ENQUIRY - HER HAVEN* 🔴
+
+*👤 CONTACT DETAILS*
+Name: ${name}
+WhatsApp: ${phone}
+Email: ${email || 'Not provided'}
+
+*📋 SUBJECT*
+${subject}
+
+*💬 MESSAGE*
+${message}
+
+Please get back to me as soon as possible. Thank you! 🙏`;
+      
+      window.open(`https://wa.me/263771009965?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+      showToast('Opening WhatsApp...');
+      
+      // Reset form
+      contactForm.reset();
+    });
+  }
+  
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+  
+  // Mobile menu
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navMenu = document.getElementById('navMenu');
+  if (mobileBtn && navMenu) {
+    mobileBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+  }
+});
+
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+const cursorFollower = document.querySelector('.cursor-follower');
+if (cursor && cursorFollower) {
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+  document.querySelectorAll('a, button, .info-card, .social-link, .faq-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('active');
+      cursorFollower.classList.add('active');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('active');
+      cursorFollower.classList.remove('active');
+    });
+  });
+}
+</script>
+</body>
+</html>

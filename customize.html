@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Custom Wig Studio · Her Haven — Design Your Dream Wig</title>
+<meta name="description" content="Create your custom wig at Her Haven. Choose texture, length, color, lace type, density, and cap size. Hand-crafted in Harare with premium raw hair.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg">
+<link rel="apple-touch-icon" href="assets/img/logo.jpeg">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+/* ===== PREMIUM VARIABLES ===== */
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-elevated: #1a1a1a;
+  --gold-primary: #D4AF37;
+  --gold-secondary: #F5D98A;
+  --gold-dark: #B8892B;
+  --gold-grad: linear-gradient(135deg, #B8892B 0%, #D4AF37 45%, #F5D98A 70%, #D4AF37 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8E8E8;
+  --text-muted: #888888;
+  --border-light: rgba(212, 175, 55, 0.15);
+  --border-medium: rgba(212, 175, 55, 0.3);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.2);
+  --transition-fast: 0.3s ease;
+  --transition-normal: 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease, width 0.2s, height 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-normal);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 12px 5%;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+}
+
+.nav-logo-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-grad);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold-primary);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-icon {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-icon:hover {
+  color: var(--gold-primary);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--gold-primary);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Page Hero */
+.page-hero {
+  padding: 180px 5% 80px;
+  text-align: center;
+  background: linear-gradient(135deg, #0a0805 0%, #000000 100%);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-hero .breadcrumb {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-top: 15px;
+}
+
+.page-hero .breadcrumb span {
+  color: var(--gold-primary);
+}
+
+/* Process Steps */
+.process-steps {
+  padding: 80px 5% 40px;
+  background: var(--bg-secondary);
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--gold-grad);
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: -15px;
+  width: 30px;
+  height: 2px;
+  background: var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Customizer Layout */
+.customizer-section {
+  padding: 80px 5%;
+}
+
+.customizer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Preview Panel */
+.preview-panel {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.preview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.preview-image {
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.preview-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  padding: 30px 20px 20px;
+}
+
+.preview-texture {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.2rem;
+  color: var(--gold-primary);
+}
+
+.preview-specs {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.preview-price {
+  background: var(--bg-card);
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid var(--border-light);
+}
+
+.price-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.price-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.price-note {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+/* Form Panel */
+.form-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-primary);
+  margin-bottom: 15px;
+}
+
+/* Option Grids */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.option-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 15px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.option-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-2px);
+}
+
+.option-card.selected {
+  background: var(--gold-grad);
+  border-color: transparent;
+}
+
+.option-card.selected .option-name {
+  color: #000;
+}
+
+.option-card.selected .option-price {
+  color: #000;
+}
+
+.option-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.option-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.option-price {
+  font-size: 0.7rem;
+  color: var(--gold-primary);
+}
+
+/* Color Options */
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.color-swatch {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+.color-swatch.selected {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 2px var(--bg-card), 0 0 0 4px var(--gold-primary);
+}
+
+.color-swatch[data-color="Natural Black"] { background: #1a1a1a; }
+.color-swatch[data-color="Off Black"] { background: #2a2a2a; }
+.color-swatch[data-color="Dark Brown"] { background: #4a3728; }
+.color-swatch[data-color="Chocolate"] { background: #6b3a2a; }
+.color-swatch[data-color="Honey Blonde"] { background: #d4a030; }
+.color-swatch[data-color="Platinum Blonde"] { background: #f0e6d0; }
+.color-swatch[data-color="Ginger"] { background: #b85c1a; }
+.color-swatch[data-color="Burgundy"] { background: #6e1b2a; }
+.color-swatch[data-color="Ombre"] { background: linear-gradient(135deg, #1a1a1a, #d4a030); }
+
+/* Length Slider */
+.length-slider {
+  padding: 10px 0;
+}
+
+.length-value {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-bottom: 15px;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  background: var(--border-light);
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.length-markers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Cap Size */
+.cap-sizes {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cap-size-btn {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cap-size-btn:hover {
+  border-color: var(--gold-primary);
+}
+
+.cap-size-btn.selected {
+  background: var(--gold-grad);
+  color: #000;
+  border-color: transparent;
+}
+
+/* Additional Options */
+.additional-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.option-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.option-checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold-primary);
+}
+
+/* Contact Form */
+.contact-form {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-light);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  background: var(--gold-grad);
+  color: #000;
+  border: none;
+  border-radius: 40px;
+  padding: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Inspiration Gallery */
+.gallery-section {
+  padding: 80px 5%;
+  background: var(--bg-secondary);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-eyebrow {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  display: block;
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.section-heading span {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 20px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay p {
+  color: var(--gold-primary);
+  font-size: 0.85rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 80px 5%;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.faq-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold-primary);
+  margin-bottom: 12px;
+}
+
+.faq-answer {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: 70px 5% 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-brand .footer-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid var(--gold-primary);
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  max-width: 250px;
+}
+
+.footer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--gold-primary);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--gold-primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--gold-primary);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  z-index: 99;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-fast);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 5px 30px rgba(37, 211, 102, 0.8); }
+}
+
+/* Toast */
+.toast-message {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--gold-grad);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .customizer-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .preview-panel {
+    position: static;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 350px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right var(--transition-normal);
+    z-index: 1001;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+  
+  .toast-message {
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/img/logo.jpeg" alt="Her Haven" class="nav-logo-img">
+    <span class="nav-logo-text">Her Haven</span>
+  </a>
+  
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="shop.html" class="nav-link">Shop</a></li>
+    <li><a href="customize.html" class="nav-link active">Custom Wig</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+  </ul>
+  
+  <div class="nav-icons">
+    <i class="fas fa-search nav-icon"></i>
+    <a href="cart.html" class="nav-icon" style="color: inherit;">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Hero with Background Image -->
+<section class="page-hero" style="background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%), url('assets/img/hero-customize.jpeg'); background-size: cover; background-position: center;">
+  <h1>Custom Wig Studio</h1>
+  <div class="breadcrumb">Home · <span>Customize</span></div>
+</section>
+
+<!-- Process Steps -->
+<section class="process-steps">
+  <div class="steps-container">
+    <div class="step" data-aos="fade-up" data-aos-delay="0">
+      <div class="step-number">1</div>
+      <div class="step-title">Choose Your Style</div>
+      <div class="step-desc">Select texture, length, and color that match your vision</div>
+    </div>
+    <div class="step" data-aos="fade-up" data-aos-delay="100">
+      <div class="step-number">2</div>
+      <div class="step-title">Customize Details</div>
+      <div class="step-desc">Pick lace type, density, and cap size for perfect fit</div>
+    </div>
+    <div class="step" data-aos="fade-up" data-aos-delay="200">
+      <div class="step-number">3</div>
+      <div class="step-title">Submit Your Order</div>
+      <div class="step-desc">Fill in your details and send via WhatsApp</div>
+    </div>
+    <div class="step" data-aos="fade-up" data-aos-delay="300">
+      <div class="step-number">4</div>
+      <div class="step-title">Receive Your Crown</div>
+      <div class="step-desc">Hand-crafted and shipped to your door in 7-14 days</div>
+    </div>
+  </div>
+</section>
+
+<!-- Customizer Section -->
+<section class="customizer-section">
+  <div class="customizer-container">
+    <!-- Preview Panel with YOUR default image -->
+    <div class="preview-panel" data-aos="fade-right">
+      <div class="preview-card">
+        <div class="preview-image">
+          <img src="assets/img/custom-preview-default.jpeg" alt="Preview" class="preview-img" id="previewImg">
+          <div class="preview-overlay">
+            <div class="preview-texture" id="previewTexture">Body Wave</div>
+            <div class="preview-specs">
+              <span id="previewLength">16"</span>
+              <span id="previewColor">Natural Black</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-price">
+          <div class="price-label">Estimated Price</div>
+          <div class="price-amount" id="estimatedPrice">$280</div>
+          <div class="price-note">*Final price confirmed on WhatsApp</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Form Panel -->
+    <div class="form-panel" data-aos="fade-left">
+      <form id="customWigForm">
+        <!-- Texture Selection -->
+        <div class="form-group">
+          <label class="form-label">1. Choose Texture</label>
+          <div class="options-grid" id="textureOptions">
+            <div class="option-card" data-texture="Body Wave" data-price="280" data-img="assets/img/texture-body-wave.jpeg">
+              <div class="option-icon">🌊</div>
+              <div class="option-name">Body Wave</div>
+              <div class="option-price">+$0</div>
+            </div>
+            <div class="option-card" data-texture="Deep Wave" data-price="290" data-img="assets/img/texture-deep-wave.jpeg">
+              <div class="option-icon">🌀</div>
+              <div class="option-name">Deep Wave</div>
+              <div class="option-price">+$10</div>
+            </div>
+            <div class="option-card" data-texture="Straight" data-price="270" data-img="assets/img/texture-straight.jpeg">
+              <div class="option-icon">📏</div>
+              <div class="option-name">Straight</div>
+              <div class="option-price">-$10</div>
+            </div>
+            <div class="option-card" data-texture="Kinky Curly" data-price="310" data-img="assets/img/texture-kinky-curly.jpeg">
+              <div class="option-icon">🌀</div>
+              <div class="option-name">Kinky Curly</div>
+              <div class="option-price">+$30</div>
+            </div>
+            <div class="option-card" data-texture="Loose Wave" data-price="285" data-img="assets/img/texture-loose-wave.jpeg">
+              <div class="option-icon">✨</div>
+              <div class="option-name">Loose Wave</div>
+              <div class="option-price">+$5</div>
+            </div>
+            <div class="option-card" data-texture="Water Wave" data-price="295" data-img="assets/img/texture-water-wave.jpeg">
+              <div class="option-icon">💧</div>
+              <div class="option-name">Water Wave</div>
+              <div class="option-price">+$15</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Length Selection -->
+        <div class="form-group">
+          <label class="form-label">2. Choose Length</label>
+          <div class="length-slider">
+            <div class="length-value">
+              <span id="lengthDisplay">16</span> inches
+            </div>
+            <input type="range" id="lengthSlider" min="8" max="30" value="16" step="1">
+            <div class="length-markers">
+              <span>8"</span><span>12"</span><span>16"</span><span>20"</span><span>24"</span><span>30"</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Color Selection -->
+        <div class="form-group">
+          <label class="form-label">3. Choose Color</label>
+          <div class="color-options" id="colorOptions">
+            <div class="color-swatch" data-color="Natural Black" data-price="0"></div>
+            <div class="color-swatch" data-color="Off Black" data-price="0"></div>
+            <div class="color-swatch" data-color="Dark Brown" data-price="0"></div>
+            <div class="color-swatch" data-color="Chocolate" data-price="20"></div>
+            <div class="color-swatch" data-color="Honey Blonde" data-price="80"></div>
+            <div class="color-swatch" data-color="Platinum Blonde" data-price="100"></div>
+            <div class="color-swatch" data-color="Ginger" data-price="70"></div>
+            <div class="color-swatch" data-color="Burgundy" data-price="60"></div>
+            <div class="color-swatch" data-color="Ombre" data-price="90"></div>
+          </div>
+          <div style="margin-top: 10px;">
+            <input type="text" class="form-input" id="customColor" placeholder="Or specify custom color...">
+          </div>
+        </div>
+        
+        <!-- Lace Type -->
+        <div class="form-group">
+          <label class="form-label">4. Lace Type</label>
+          <div class="options-grid" id="laceOptions">
+            <div class="option-card" data-lace="HD Lace 13x4" data-price="0">
+              <div class="option-name">HD Lace 13x4</div>
+              <div class="option-price">+$0</div>
+            </div>
+            <div class="option-card" data-lace="HD Lace 13x6" data-price="30">
+              <div class="option-name">HD Lace 13x6</div>
+              <div class="option-price">+$30</div>
+            </div>
+            <div class="option-card" data-lace="HD Closure 5x5" data-price="-20">
+              <div class="option-name">HD Closure 5x5</div>
+              <div class="option-price">-$20</div>
+            </div>
+            <div class="option-card" data-lace="HD Closure 4x4" data-price="-30">
+              <div class="option-name">HD Closure 4x4</div>
+              <div class="option-price">-$30</div>
+            </div>
+            <div class="option-card" data-lace="Full Lace" data-price="80">
+              <div class="option-name">Full Lace</div>
+              <div class="option-price">+$80</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Density -->
+        <div class="form-group">
+          <label class="form-label">5. Density</label>
+          <div class="options-grid" id="densityOptions">
+            <div class="option-card" data-density="150%" data-price="0">
+              <div class="option-name">150% (Natural)</div>
+              <div class="option-price">+$0</div>
+            </div>
+            <div class="option-card" data-density="180%" data-price="40">
+              <div class="option-name">180% (Full)</div>
+              <div class="option-price">+$40</div>
+            </div>
+            <div class="option-card" data-density="200%" data-price="70">
+              <div class="option-name">200% (Very Full)</div>
+              <div class="option-price">+$70</div>
+            </div>
+            <div class="option-card" data-density="250%" data-price="120">
+              <div class="option-name">250% (Extra Full)</div>
+              <div class="option-price">+$120</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cap Size -->
+        <div class="form-group">
+          <label class="form-label">6. Cap Size</label>
+          <div class="cap-sizes" id="capSizeOptions">
+            <div class="cap-size-btn" data-size="Small (21.5\")">Small (21.5")</div>
+            <div class="cap-size-btn" data-size="Medium (22.5\")">Medium (22.5")</div>
+            <div class="cap-size-btn" data-size="Large (23.5\")">Large (23.5")</div>
+            <div class="cap-size-btn" data-size="Custom Fit">Custom Fit (+$30)</div>
+          </div>
+        </div>
+        
+        <!-- Additional Options -->
+        <div class="form-group">
+          <label class="form-label">7. Additional Options</label>
+          <div class="additional-options">
+            <label class="option-checkbox">
+              <input type="checkbox" id="bleachedKnots" value="25"> Bleached Knots (+$25)
+            </label>
+            <label class="option-checkbox">
+              <input type="checkbox" id="prePlucked" value="20"> Pre-Plucked Hairline (+$20)
+            </label>
+            <label class="option-checkbox">
+              <input type="checkbox" id="babyHairs" value="15"> Pre-Made Baby Hairs (+$15)
+            </label>
+            <label class="option-checkbox">
+              <input type="checkbox" id="expressShipping" value="40"> Express Shipping (+$40)
+            </label>
+          </div>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="contact-form">
+          <div class="form-group">
+            <label class="form-label">Your Contact Information</label>
+            <div class="form-row">
+              <input type="text" class="form-input" id="fullName" placeholder="Full Name" required>
+              <input type="tel" class="form-input" id="phoneNumber" placeholder="WhatsApp Number" required>
+            </div>
+            <div class="form-row">
+              <input type="email" class="form-input" id="email" placeholder="Email (optional)">
+              <input type="text" class="form-input" id="city" placeholder="City" required>
+            </div>
+            <textarea class="form-textarea" id="deliveryAddress" placeholder="Delivery Address" required></textarea>
+            <textarea class="form-textarea" id="specialNotes" placeholder="Special instructions or reference images (optional)"></textarea>
+          </div>
+          
+          <button type="button" class="submit-btn" id="submitCustomOrder">
+            <i class="fab fa-whatsapp"></i> Send Custom Order via WhatsApp
+          </button>
+          <p style="text-align: center; margin-top: 15px; font-size: 0.75rem; color: var(--text-muted);">
+            You'll be redirected to WhatsApp to confirm your custom wig order and payment details.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Inspiration Gallery with YOUR images -->
+<section class="gallery-section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Inspiration</span>
+    <h2 class="section-heading">Custom <span>Creations</span></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item" data-aos="fade-up">
+      <img src="assets/img/product-body-wave-bundle.jpeg" alt="Body wave wig">
+      <div class="gallery-overlay"><p>Body Wave · 20" · Honey Blonde</p></div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+      <img src="assets/img/product-loose-wave.jpeg" alt="Loose wave wig">
+      <div class="gallery-overlay"><p>Loose Wave · 22" · Ginger</p></div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+      <img src="assets/img/product-deep-wave-deal.jpeg" alt="Deep wave wig">
+      <div class="gallery-overlay"><p>Deep Wave · 18" · Natural Black</p></div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+      <img src="assets/img/product-honey-blonde.jpeg" alt="Honey blonde wig">
+      <div class="gallery-overlay"><p>Body Wave · 24" · Ombre</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="section-title" data-aos="fade-up">
+    <span class="section-eyebrow">Questions</span>
+    <h2 class="section-heading">Frequently <span>Asked</span></h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item" data-aos="fade-up">
+      <div class="faq-question">How long does a custom wig take?</div>
+      <div class="faq-answer">Our custom wigs typically take 7-14 days to complete, depending on complexity and our current order volume. Rush orders available for an additional fee.</div>
+    </div>
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="faq-question">Do you ship internationally?</div>
+      <div class="faq-answer">Yes! We ship worldwide from Harare, Zimbabwe. Delivery times vary by location (3-10 days for Africa, 7-14 days for international).</div>
+    </div>
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="faq-question">Can I send a reference photo?</div>
+      <div class="faq-answer">Absolutely! Include reference images in the notes section or send them directly on WhatsApp after submitting your order.</div>
+    </div>
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="faq-question">What payment methods do you accept?</div>
+      <div class="faq-answer">We accept EcoCash, InnBucks, bank transfer, and international payments via PayPal/Wise. Payment details provided on WhatsApp.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.jpeg" alt="Her Haven" class="footer-logo">
+      <h3 style="font-family: 'Great Vibes', cursive; font-size: 1.5rem;">Her Haven</h3>
+      <p>Premium raw hair, custom-colored wigs and styling — dedicated to her glow.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/herhaven_zw" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@_her_haven" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/263771009965" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Shop</h4>
+      <ul class="footer-links">
+        <li><a href="shop.html?cat=body-wave">Body Wave</a></li>
+        <li><a href="shop.html?cat=straight">Straight</a></li>
+        <li><a href="shop.html?cat=curly">Curly</a></li>
+        <li><a href="shop.html?cat=bobs">Bob Wigs</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Studio</h4>
+      <ul class="footer-links">
+        <li><a href="customize.html">Custom Wig</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart & Checkout</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="footer-title">Contact</h4>
+      <ul class="footer-links">
+        <li><i class="fab fa-whatsapp"></i> +263 77 100 9965</li>
+        <li><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</li>
+        <li><i class="far fa-clock"></i> Mon–Sat · 9:00–18:00</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2024 Her Haven. Dedicated to her glow. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/263771009965" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Cart functions
+let cart = JSON.parse(localStorage.getItem('herhaven_cart') || '[]');
+
+function updateCartCount() {
+  const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = total);
+}
+
+function showToast(message) {
+  let toast = document.querySelector('.toast-message');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast-message';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    toast.style.transform = 'translateX(-50%) translateY(100px)';
+  }, 2500);
+}
+
+// Customization State
+let customState = {
+  texture: { name: "Body Wave", price: 280, img: "assets/img/texture-body-wave.jpeg" },
+  length: 16,
+  color: { name: "Natural Black", price: 0 },
+  lace: { name: "HD Lace 13x4", price: 0 },
+  density: { name: "150%", price: 0 },
+  capSize: "Medium (22.5\")",
+  extras: { bleachedKnots: false, prePlucked: false, babyHairs: false, expressShipping: false }
+};
+
+// Price calculation
+function calculatePrice() {
+  let basePrice = customState.texture.price;
+  
+  let lengthPrice = 0;
+  if (customState.length > 14) lengthPrice = (customState.length - 14) * 8;
+  
+  let colorPrice = customState.color.price;
+  let lacePrice = customState.lace.price;
+  let densityPrice = customState.density.price;
+  let capPrice = customState.capSize === "Custom Fit" ? 30 : 0;
+  
+  let extrasPrice = 0;
+  if (customState.extras.bleachedKnots) extrasPrice += 25;
+  if (customState.extras.prePlucked) extrasPrice += 20;
+  if (customState.extras.babyHairs) extrasPrice += 15;
+  if (customState.extras.expressShipping) extrasPrice += 40;
+  
+  let total = basePrice + lengthPrice + colorPrice + lacePrice + densityPrice + capPrice + extrasPrice;
+  
+  document.getElementById('estimatedPrice').textContent = '$' + total;
+  document.getElementById('previewTexture').textContent = customState.texture.name;
+  document.getElementById('previewLength').textContent = customState.length + '"';
+  document.getElementById('previewColor').textContent = customState.color.name;
+  document.getElementById('previewImg').src = customState.texture.img;
+  
+  return total;
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ duration: 800, once: true });
+  updateCartCount();
+  
+  // Texture selection
+  document.querySelectorAll('#textureOptions .option-card').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('#textureOptions .option-card').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      customState.texture = {
+        name: opt.dataset.texture,
+        price: parseInt(opt.dataset.price),
+        img: opt.dataset.img
+      };
+      calculatePrice();
+    });
+    if (opt.dataset.texture === "Body Wave") opt.classList.add('selected');
+  });
+  
+  // Length slider
+  const lengthSlider = document.getElementById('lengthSlider');
+  const lengthDisplay = document.getElementById('lengthDisplay');
+  lengthSlider.addEventListener('input', (e) => {
+    customState.length = parseInt(e.target.value);
+    lengthDisplay.textContent = customState.length;
+    calculatePrice();
+  });
+  
+  // Color selection
+  document.querySelectorAll('.color-swatch').forEach(swatch => {
+    swatch.addEventListener('click', () => {
+      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+      swatch.classList.add('selected');
+      customState.color = {
+        name: swatch.dataset.color,
+        price: parseInt(swatch.dataset.price)
+      };
+      calculatePrice();
+    });
+  });
+  document.querySelector('.color-swatch').classList.add('selected');
+  
+  // Custom color input
+  const customColor = document.getElementById('customColor');
+  customColor.addEventListener('input', (e) => {
+    if (e.target.value) {
+      customState.color = { name: e.target.value, price: 50 };
+      calculatePrice();
+    }
+  });
+  
+  // Lace selection
+  document.querySelectorAll('#laceOptions .option-card').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('#laceOptions .option-card').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      customState.lace = {
+        name: opt.dataset.lace,
+        price: parseInt(opt.dataset.price)
+      };
+      calculatePrice();
+    });
+    if (opt.dataset.lace === "HD Lace 13x4") opt.classList.add('selected');
+  });
+  
+  // Density selection
+  document.querySelectorAll('#densityOptions .option-card').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('#densityOptions .option-card').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      customState.density = {
+        name: opt.dataset.density,
+        price: parseInt(opt.dataset.price)
+      };
+      calculatePrice();
+    });
+    if (opt.dataset.density === "150%") opt.classList.add('selected');
+  });
+  
+  // Cap size selection
+  document.querySelectorAll('.cap-size-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cap-size-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      customState.capSize = btn.dataset.size;
+      calculatePrice();
+    });
+    if (btn.dataset.size === 'Medium (22.5")') btn.classList.add('selected');
+  });
+  
+  // Extras
+  document.getElementById('bleachedKnots').addEventListener('change', (e) => {
+    customState.extras.bleachedKnots = e.target.checked;
+    calculatePrice();
+  });
+  document.getElementById('prePlucked').addEventListener('change', (e) => {
+    customState.extras.prePlucked = e.target.checked;
+    calculatePrice();
+  });
+  document.getElementById('babyHairs').addEventListener('change', (e) => {
+    customState.extras.babyHairs = e.target.checked;
+    calculatePrice();
+  });
+  document.getElementById('expressShipping').addEventListener('change', (e) => {
+    customState.extras.expressShipping = e.target.checked;
+    calculatePrice();
+  });
+  
+  calculatePrice();
+  
+  // Submit order
+  document.getElementById('submitCustomOrder').addEventListener('click', () => {
+    const name = document.getElementById('fullName').value;
+    const phone = document.getElementById('phoneNumber').value;
+    const address = document.getElementById('deliveryAddress').value;
+    
+    if (!name || !phone || !address) {
+      showToast('Please fill in your name, phone number, and delivery address');
+      return;
+    }
+    
+    const total = calculatePrice();
+    const customColorValue = customColor.value || customState.color.name;
+    
+    let extrasList = [];
+    if (customState.extras.bleachedKnots) extrasList.push('✓ Bleached Knots (+$25)');
+    if (customState.extras.prePlucked) extrasList.push('✓ Pre-Plucked Hairline (+$20)');
+    if (customState.extras.babyHairs) extrasList.push('✓ Pre-Made Baby Hairs (+$15)');
+    if (customState.extras.expressShipping) extrasList.push('✓ Express Shipping (+$40)');
+    
+    const message = `*🔴 NEW CUSTOM WIG ORDER - HER HAVEN* 🔴
+
+*👤 CUSTOMER DETAILS*
+Name: ${name}
+WhatsApp: ${phone}
+Email: ${document.getElementById('email').value || 'Not provided'}
+City: ${document.getElementById('city').value}
+Delivery Address: ${address}
+
+*✨ CUSTOM WIG SPECIFICATIONS*
+▪️ Texture: ${customState.texture.name}
+▪️ Length: ${customState.length}"
+▪️ Color: ${customColorValue}
+▪️ Lace Type: ${customState.lace.name}
+▪️ Density: ${customState.density.name}
+▪️ Cap Size: ${customState.capSize}
+
+*💰 PRICE BREAKDOWN*
+▪️ Base Price: $${customState.texture.price}
+▪️ Length (${customState.length}"): $${Math.max(0, (customState.length - 14) * 8)}
+▪️ Color: $${customState.color.price}
+▪️ Lace: $${customState.lace.price}
+▪️ Density: $${customState.density.price}
+▪️ Cap Size: ${customState.capSize === 'Custom Fit' ? '+$30' : '$0'}
+${extrasList.length ? '▪️ Extras:\n   ' + extrasList.join('\n   ') : ''}
+
+*💵 TOTAL ESTIMATE: $${total}*
+
+*📝 SPECIAL NOTES:*
+${document.getElementById('specialNotes').value || 'None'}
+
+Please confirm availability, provide payment details, and share estimated delivery timeline. Thank you! 🙏`;
+    
+    window.open(`https://wa.me/263771009965?text=${encodeURIComponent(message)}`, '_blank');
+    showToast('Opening WhatsApp...');
+  });
+  
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+  
+  // Mobile menu
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navMenu = document.getElementById('navMenu');
+  if (mobileBtn && navMenu) {
+    mobileBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+  }
+});
+
+// Custom cursor
+const cursor = document.querySelector('.cursor');
+const cursorFollower = document.querySelector('.cursor-follower');
+if (cursor && cursorFollower) {
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+  document.querySelectorAll('a, button, .option-card, .color-swatch, .cap-size-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('active');
+      cursorFollower.classList.add('active');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('active');
+      cursorFollower.classList.remove('active');
+    });
+  });
+}
+</script>
+</body>
+</html>
